@@ -36,12 +36,12 @@
                     </div>
                 </div>
 
-                <a href="{{ route('log') }}" class="card border border-primary text-center shadow-lg rounded-lg p-5 hover:p-2 group hover:bg-primary transition-all duration-500 col-span-2">
+                <!-- <a href="{{ route('log') }}" class="card border border-primary text-center shadow-lg rounded-lg p-5 hover:p-2 group hover:bg-primary transition-all duration-500 col-span-2">
                     <div class="group-hover:text-[white] group-hover:animate-pulse group-hover:font-bold text-[20px] group-hover:text-[30px]" >
                         <i class="bi bi-people-fill"></i>
                     </div>
                     <h3 class="group-hover:text-[white] group-hover:font-bold group-hover:text-lg" >Students Complaint Log</h3>
-                </a>
+                </a> -->
 
             </div>
         </div>

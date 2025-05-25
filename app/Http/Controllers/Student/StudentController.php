@@ -31,12 +31,10 @@ class StudentController extends Controller
 
     public function compaints()
     {
-        return view('student.complaints');
-    }
-
-    public function notifications()
-    {
-        return view('student.notifications');
+        $complaints = Complaint::where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+        return view('student.complaints', compact('complaints'));
     }
 
     public function profile()

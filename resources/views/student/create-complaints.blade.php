@@ -32,7 +32,6 @@
             {{-- Complaint Form --}}
             <form id="complaintForm" action="{{ route('complaints.store') }}" method="POST" enctype="multipart/form-data" class="grid gap-6">
                 @csrf
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 {{-- Title --}}
                 <div class="grid gap-2">
@@ -83,95 +82,4 @@
             </form>
         </div>
     </main>
-@endsection
-
-@section('scripts')
-    <script>
-        $(document).ready(function () {
-            // Close success/error messages
-            $('.close-message').on('click', function () {
-                $(this).parent().fadeOut(300, function () {
-                    $(this).remove();
-                });
-            });
-
-            // Form submission with jQuery
-            $('#complaintForm').on('submit', function (e) {
-                e.preventDefault();
-
-                // Clear previous error messages
-                $('.error-message').text('');
-
-                // Show preloader
-                $('#submitButton').prop('disabled', true);
-                $('#buttonText').addClass('opacity-0');
-                $('#preloader').removeClass('hidden');
-
-                // Prepare form data
-                let formData = new FormData(this);
-
-                $.ajax({
-                    url: $(this).attr('action'),
-                    method: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    headers: {
-                        'X-CSRF-TOKEN': $('input[name="_token"]').val()
-                    },
-                    success: function (response) {
-                        // Hide preloader
-                        $('#submitButton').prop('disabled', false);
-                        $('#buttonText').removeClass('opacity-0');
-                        $('#preloader').addClass('hidden');
-
-                        // Show success toast
-                        Toastify({
-                            text: response.message || 'Complaint submitted successfully!',
-                            duration: 3000,
-                            gravity: 'top',
-                            position: 'right',
-                            backgroundColor: '#34D399',
-                            stopOnFocus: true
-                        }).showToast();
-
-                        // Reset form
-                        $('#complaintForm')[0].reset();
-
-                        // Redirect after a delay
-                        setTimeout(() => {
-                            window.location.href = response.redirect || '{{ route('complaints') }}';
-                        }, 1000);
-                    },
-                    error: function (xhr) {
-                        // Hide preloader
-                        $('#submitButton').prop('disabled', false);
-                        $('#buttonText').removeClass('opacity-0');
-                        $('#preloader').addClass('hidden');
-
-                        // Handle errors
-                        let errors = xhr.responseJSON?.errors || {};
-                        let errorMessage = xhr.responseJSON?.message || 'An error occurred. Please try again.';
-
-                        // Display field-specific errors
-                        if (errors) {
-                            $.each(errors, function (key, messages) {
-                                $(`#${key}-error`).text(messages[0]);
-                            });
-                        }
-
-                        // Show error toast
-                        Toastify({
-                            text: errorMessage,
-                            duration: 3000,
-                            gravity: 'top',
-                            position: 'right',
-                            backgroundColor: '#EF4444',
-                            stopOnFocus: true
-                        }).showToast();
-                    }
-                });
-            });
-        });
-    </script>
 @endsection

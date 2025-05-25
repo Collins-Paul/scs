@@ -14,12 +14,12 @@
                 <img class="w-[150px]" src="{{ asset('assets/complaints-icon.webp') }}" alt="">
             </div>
             <p class="text-gray-600 text-lg">You haven't submitted any complaints yet.</p>
-            <a href="{{ route('student.complaints.create') }}" class="mt-4 inline-block bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition">File a New Complaint</a>
+            <a href="{{ route('complaints.create') }}" class="mt-4 inline-block bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition">File a New Complaint</a>
         </div>
     @else
         <div class="grid gap-6 lg:gap-8">
             @foreach ($complaints as $complaint)
-                <a wire:navigate href="{{ route('student.complaints.show', $complaint->id) }}" class="relative bg-white hover:bg-green-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200" aria-label="View complaint: {{ $complaint->title }}">
+                <a href="{{ route('complaints.show', $complaint->id) }}" class="relative bg-white hover:bg-green-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200" aria-label="View complaint: {{ $complaint->title }}">
                     <div class="absolute top-0 right-0 -mt-3 -mr-3 px-3 py-1 text-sm font-medium rounded-full text-white
                                 {{ $complaint->status === 'pending' ? 'bg-yellow-500' : ($complaint->status === 'resolved' ? 'bg-green-500' : 'bg-gray-500') }}">
                         {{ \Carbon\Carbon::parse($complaint->created_at)->format('m/d/Y, g:i A') }}
@@ -55,9 +55,7 @@
         </div>
     @endif
 </main>
-
 @endsection
 
 @section('scripts')
-
 @endsection
