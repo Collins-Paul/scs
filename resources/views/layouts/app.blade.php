@@ -31,12 +31,12 @@
 
     </head>
     <body>
-        <div id="loadingScreen" class="fixed top-0 left-0 right-0 bottom-0 h-[100vh] inset-0 flex items-center justify-center bg-primary z-[9999]">
+        <!-- <div id="loadingScreen" class="fixed top-0 left-0 right-0 bottom-0 h-[100vh] inset-0 flex items-center justify-center bg-primary z-[9999]">
             <div class="animate-bounce flex h-10 w-10 rounded-full bg-white">
                 <div class="animate-ping flex h-10 w-10 rounded-full bg-white">
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="flex wrapper">
 
@@ -45,7 +45,7 @@
             <!-- End Sidebar -->
 
             <!-- Start Page Content here -->
-            <div class="page-content lg:ps-[20rem] p-5">
+            <div class="sm:ml-68 p-5 w-full">
 
                 <!-- Topbar Start -->
                 @include('includes.navbar')

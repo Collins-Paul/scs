@@ -1,6 +1,6 @@
 <header class="sticky top-0 bg-white h-16 flex justify-between items-center px-5 gap-4 z-50">
     <!-- Sidenav Menu Toggle Button -->
-    <button id="button-toggle-menu" class="text-gray-500 hover:text-gray-600 p-2 rounded-full block lg:hidden cursor-pointer"
+    <button id="button-toggle-menu" class="text-gray-500 hover:text-gray-600 p-2 rounded-full block lg:hidden md:hidden cursor-pointer"
         data-hs-overlay="#app-menu" aria-label="Toggle navigation">
         <!-- <i class="ti ti-menu-2 text-2xl"></i> -->
         <i class="material-symbols-rounded font-light text-2xl transition-all group-hover:fill-1">Menu</i>

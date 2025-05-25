@@ -18,7 +18,7 @@ Route::middleware(['auth', 'role:student'])->group(function () {
 
         Route::controller(ComplaintController::class)->group(function () {
             Route::post('complaints/store', 'store')->name('complaints.store');
-            Route::post('complaints/create', 'create')->name('complaints.create');
+            Route::get('complaints/create', 'create')->name('complaints.create');
             Route::get('complaints/{id}/edit', 'edit')->name('complaints.edit');
             Route::put('complaints/{id}', 'update')->name('complaints.update');
             Route::delete('complaints/{id}', 'destroy')->name('complaints.destroy');

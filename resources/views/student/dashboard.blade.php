@@ -6,7 +6,6 @@
 
 <main>
     <div class="card m-5 p-5">
-        {{-- <h3 class="font-medium text-lg">Dashboard</h3> --}}
         <h3 class="font-medium text-2xl text-center lg:text-start">Dashboard</h3>
     </div>
 

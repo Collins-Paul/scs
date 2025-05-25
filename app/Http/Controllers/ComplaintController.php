@@ -12,7 +12,7 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -21,6 +21,7 @@ class ComplaintController extends Controller
     public function create()
     {
         //
+        return view('student.create-complaints');
     }
 
     /**
