@@ -1,0 +1,29 @@
+<?php
+use App\Http\Controllers\Auth\AuthController;
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Auth\GoogleAuthController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('login', 'login')->name('login');
+    Route::get('register', 'register')->name('register');
+    Route::get('password-reset', 'password_reset')->name('password-reset');
+    Route::get('new-password', 'new_password')->name('new-password');
+    Route::post('login/auth', 'auth')->name('login.auth');
+});
+
+require __DIR__.'/admin.php';
+require __DIR__.'/supervisor.php';
+require __DIR__.'/student.php';
+
+Route::middleware(['web'])->group(function () {
+    Route::get('/auth/google', [GoogleAuthController::class, 'redirectToGoogle'])->name('auth.google');
+    Route::get('/auth/google/callback', [GoogleAuthController::class, 'handleGoogleCallback'])->name('auth.google.callback');
+});
+
+
+
