@@ -47,7 +47,7 @@ class AuthController extends Controller
             'firstName' => ['required', 'string', 'max:255'],
             'lastName' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'string', 'max:20'],
+            'username' => ['required', 'string', 'max:255', 'unique:users,username'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'invalidCheck2' => ['required', 'accepted'], // Terms and conditions checkbox
         ]);
@@ -60,12 +60,15 @@ class AuthController extends Controller
 
         // Create the user
         $user = User::create([
-            'first_name' => $request->firstName,
-            'last_name' => $request->lastName,
+            'firstname' => $request->firstName,
+            'lastname' => $request->lastName,
             'email' => $request->email,
-            'phone' => $request->phone,
+            'username' => $request->username,
             'password' => Hash::make($request->password),
         ]);
+
+        // Assign a default role (e.g., 'student') if needed
+        $user->role()->create(['role' => 'student']);
 
         // Log the user in
         Auth::login($user);

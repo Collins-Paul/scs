@@ -1,3 +1,4 @@
+
 @extends('layouts.auth')
 
 @section('title', 'Register')
@@ -43,9 +44,9 @@
                         </div>
 
                         <div class="grid gap-2">
-                            <label for="phone" class="font-medium">Phone Number</label>
-                            <input type="text" name="phone" class="form-input border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded-lg @error('phone') border-red-500 @enderror" value="{{ old('phone') }}" required>
-                            @error('phone')
+                            <label for="username" class="font-medium">Username</label>
+                            <input type="text" name="username" class="form-input border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-300 rounded-lg @error('username') border-red-500 @enderror" value="{{ old('username') }}" required>
+                            @error('username')
                                 <span class="text-red-500 text-sm">{{ $message }}</span>
                             @enderror
                         </div>
