@@ -9,27 +9,25 @@
         <h3 class="font-medium text-2xl text-center lg:text-start">Admin Dashboard</h3>
     </div>
 
-    <!-- {{ Auth::user()->role->role }} -->
-
     <div class="">
         <div class="grid lg:grid-cols-3 gap-4">
             <div class="card py-[3rem] flex items-center justify-center">
                 <div>
-                    <h1 class="!text-[2rem] text-center font-bold">0</h1>
+                    <h1 class="!text-[2rem] text-center font-bold">{{ $users }}</h1>
                     <p class="text-[1rem]">Users</p>
                 </div>
             </div>
 
             <div class="card py-[3rem] flex items-center justify-center">
                 <div>
-                    <h1 class="!text-[2rem] text-center font-bold">0</h1>
+                    <h1 class="!text-[2rem] text-center font-bold">{{ $complaints }}</h1>
                     <p class="text-[1rem]">Complaints</p>
                 </div>
             </div>
 
             <div class="card py-[3rem] flex items-center justify-center">
                 <div>
-                    <h1 class="!text-[2rem] text-center font-bold">0</h1>
+                    <h1 class="!text-[2rem] text-center font-bold">{{ $resolvedComplaints }}</h1>
                     <p class="text-[1rem]">Resolved</p>
                 </div>
             </div>

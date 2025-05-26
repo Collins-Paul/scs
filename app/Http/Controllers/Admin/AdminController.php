@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Complaint;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $users = User::get()->count();
+        $complaints = Complaint::get()->count();
+        $resolvedComplaints = Complaint::where('status', 'resolved')->get()->count();
+        return view('admin.dashboard', [
+            'users' => $users,
+            'complaints' => $complaints,
+            'resolvedComplaints' => $resolvedComplaints,
+        ]);
     }
 }
