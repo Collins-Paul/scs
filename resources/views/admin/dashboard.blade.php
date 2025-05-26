@@ -11,26 +11,32 @@
 
     <div class="">
         <div class="grid lg:grid-cols-3 gap-4">
-            <div class="card py-[3rem] flex items-center justify-center">
-                <div>
-                    <h1 class="!text-[2rem] text-center font-bold">{{ $users }}</h1>
-                    <p class="text-[1rem]">Users</p>
+            <a href="{{ route('admin.users') }}">
+                <div class="card py-[3rem] flex items-center justify-center">
+                    <div>
+                        <h1 class="!text-[2rem] text-center font-bold">{{ $users }}</h1>
+                        <p class="text-[1rem]">Users</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card py-[3rem] flex items-center justify-center">
-                <div>
-                    <h1 class="!text-[2rem] text-center font-bold">{{ $complaints }}</h1>
-                    <p class="text-[1rem]">Complaints</p>
+            <a href="">
+                <div class="card py-[3rem] flex items-center justify-center">
+                    <div>
+                        <h1 class="!text-[2rem] text-center font-bold">{{ $complaints }}</h1>
+                        <p class="text-[1rem]">Complaints</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card py-[3rem] flex items-center justify-center">
-                <div>
-                    <h1 class="!text-[2rem] text-center font-bold">{{ $resolvedComplaints }}</h1>
-                    <p class="text-[1rem]">Resolved</p>
+            <a href="">
+                <div class="card py-[3rem] flex items-center justify-center">
+                    <div>
+                        <h1 class="!text-[2rem] text-center font-bold">{{ $resolvedComplaints }}</h1>
+                        <p class="text-[1rem]">Resolved</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </main>
